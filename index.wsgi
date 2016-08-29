@@ -1,4 +1,5 @@
 import sae
+from myapp import app
 
 def app(environ, start_response):
     status = '200 OK'
