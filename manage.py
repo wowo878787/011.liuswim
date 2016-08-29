@@ -1,12 +1,7 @@
-from flask import Flask, g, request
+# coding:utf-8
+from app import create_app
 
-app = Flask(__name__)
-app.debug = True
-
-
-@app.route('/')
-def index():
-    return "Hello, world! - Flask"
+app = create_app()
 
 if __name__ == '__main__':
     app.run(debug=True)
