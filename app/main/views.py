@@ -7,5 +7,5 @@ from ..models import days
 
 @main.route('/')
 def index():
-    days.weather('北京')
-    return render_template('index.html',ists=days.weather_ists)
+    # days.weather('北京')
+    return render_template('index.html')
