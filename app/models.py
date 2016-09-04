@@ -22,7 +22,6 @@ class days():
                u'冻雨': 'weather/19.png',
                u'': ''
                }
-    weather_ists = []
 
     def __init__(self, date, weather, wind, temperature):
         self.date = date
@@ -42,18 +41,22 @@ class days():
             self.r_weather = weather[zhuan_index + 1:]
         else:
             self.l_weather = weather
-            self.r_weather = u''
+            self.r_weather = weather
 
     def get_pic(self, l_weather, r_weather):
         self.l_pic_url = days.pic_map[l_weather]
         self.r_pic_url = days.pic_map[r_weather]
 
     @classmethod
-    def weather(cls, city):
+    def weather(cls, city,ists_list):
         payload = {'location': city, 'output': 'json', 'ak': 'djYMsCshZb4UGzA55TsaeGpEWP3denxx'}
         r = requests.get("http://api.map.baidu.com/telematics/v3/weather", params=payload)
-        weather_dict = r.json()['results'][0]['weather_data']
+        if r.json()['status']=='success':
+            weather_dict = r.json()['results'][0]['weather_data']
+        else:
+            return False
         for item in weather_dict:
             ists = days(item['date'], item['weather'],
                         item['wind'], item['temperature'])
-            cls.weather_ists.append(ists)
+            ists_list.append(ists)
+        return True

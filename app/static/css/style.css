@@ -1,0 +1,194 @@
+@font-face {
+    font-family: 'weatherFont';
+    src: url('../font/FZLTXHK.TTF') format("truetype");
+}
+
+body {
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    color: #777;
+}
+
+.search {
+    position: relative;
+    width: 500px;
+    padding-top: 20px;
+    margin-left: -250px;
+    left: 50%;
+}
+
+.nav-search {
+}
+
+.input-search {
+    display: block;
+    height: 46px;
+    width: 500px;
+    padding: 10px 43px;
+    border: 1px solid #ccc;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Microsoft YaHei';
+    transition: color 200ms;
+}
+
+.input-search:focus {
+    border-color: #aaa;
+    outline: 0
+}
+
+.input-search:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.button-search {
+    position: absolute;
+    right: 17px;
+    top: 35px;;
+    color: #ccc;
+    transition: color 200ms;
+}
+
+.button-search:hover,
+.button-back:hover,
+.button-marker:hover {
+    color: #777
+}
+
+.button-back {
+    position: absolute;
+    display: inline-block;
+    right: 50%;
+    margin: -31px 300px 0 0;
+    color: #ccc;
+    text-decoration: none;
+    transition: color 200ms;
+}
+
+.button-marker {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    margin: -31px 0 0 300px;
+    color: #ccc;
+    transition: color 200ms;
+}
+
+.days {
+    height: 400px;
+    width: 1123px;
+    margin: 70px auto 0;
+}
+
+.today {
+    border-right: solid 1px #ccc;
+    width: 280px;
+    height: 400px;
+    display: block;
+    float: left;
+}
+
+.day {
+    border-right: solid 1px #ccc;
+    width: 280px;
+    height: 400px;
+    display: block;
+    float: left;
+}
+
+.day:last-child {
+    border-right: none;
+}
+
+.introduce {
+    line-height: 8px;
+    text-align: center;
+}
+
+.container {
+    width: 150px;
+    position: relative;
+    perspective: 800px;
+    margin: 0 auto;
+}
+
+#card {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    transform-style: preserve-3d;
+    transform-origin: 50% 70%;
+    animation: turn 10s infinite 3s;
+}
+
+#card img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    backface-visibility: hidden;
+
+}
+
+#card .front {
+    backface-visibility: hidden;
+}
+
+#card .back {
+    transform: rotateX(-180deg);
+}
+
+@keyframes turn {
+    0% {
+    }
+    10% {
+        transform: rotateX(0deg);
+    }
+    50% {
+        transform: rotateX(-180deg);
+    }
+    60% {
+        transform: rotateX(-180deg);
+    }
+    100% {
+        transform: rotateX(-360deg);
+    }
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+footer a {
+    color: #777;
+    text-decoration: none;
+}
+
+.nagare {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    animation: nagaru 10s infinite linear;
+    text-align: center;
+}
+
+@keyframes nagaru {
+    0% {
+        transform: translateX(0%);
+    }
+    25% {
+        transform: translateX(-30%);
+    }
+    50% {
+        transform: translateX(0%);
+    }
+    75% {
+        transform: translateX(30%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+

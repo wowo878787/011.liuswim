@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>main blueprint is available</h1>
-    <img src="{{ url_for('static',filename='weather/6.png')}}">
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <nav>
+        <section class="search" style="margin-top: 80px">
+            <form method="POST" action="{{ url_for('.result') }}" id="search-form" autocomplete="off">
+                <input class="input-search" type="text" placeholder="请输入查询的城市" name='city'>
+                <a href="javascript:{}" name="submit"
+                   onclick="submit_form()"><i class="fa fa-search button-search"></i></a>
+            </form>
+            <div class="nagare">
+                <img src="../static/weather/8.png">
+            </div>
+        </section>
+    </nav>
+{% endblock %}
+

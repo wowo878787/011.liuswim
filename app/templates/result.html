@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+<nav>
+    <section class="search">
+        <form method="POST" action="{{ url_for('.result') }}" id="search-form" autocomplete="off">
+            <input class="input-search" type="text" placeholder="请输入查询的城市" name='city'>
+            <a href="javascript:{}" name="submit"
+               onclick="submit_form()"><i class="fa fa-search button-search"></i></a>
+        </form>
+    </section>
+    <a href="{{ url_for('.index') }}" class="button-back"><i class="fa fa-arrow-left"></i> 返回首页</a>
+    <a class="button-marker"><i class="fa fa-map-marker"></i> {{ city }}</a>
+</nav>
+<div>
+    <div class="days">
+        <div class="today">
+            <section class="introduce">
+                <p>{{ wea_list[0].date }}</p>
+                <p>{{ wea_list[0].weather }}</p>
+                <p>{{ wea_list[0].wind }}</p>
+                <p>{{ wea_list[0].temperature }}</p>
+            </section>
+
+            <section class="container">
+                <div id="card">
+                    <img class="front" src="{{ url_for('static',filename=wea_list[0].l_pic_url) }}">
+                    <img class="back" src="{{ url_for('static',filename=wea_list[0].r_pic_url) }}">
+                </div>
+            </section>
+
+        </div>
+        {% for oth_wea in wea_list[1:] %}
+            <div class="day">
+                <section class="introduce">
+                    <p>{{ oth_wea.date }}</p>
+                    <p>{{ oth_wea.weather }}</p>
+                    <p>{{ oth_wea.wind }}</p>
+                    <p>{{ oth_wea.temperature }}</p>
+                </section>
+
+                <section class="container">
+                    <div id="card">
+                        <img class="front" src="{{ url_for('static',filename=oth_wea.l_pic_url) }}">
+                        <img class="back" src="{{ url_for('static',filename=oth_wea.r_pic_url) }}">
+                    </div>
+                </section>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
